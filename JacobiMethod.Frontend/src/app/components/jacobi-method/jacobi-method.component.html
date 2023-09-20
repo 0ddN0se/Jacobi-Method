@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Метод Якоби</h1>
+
+  <h2>Ввод исходных данных:</h2>
+  <div class="row mb-2 px-3 text-center" *ngFor="let row of a; index as i">
+    <div class="col-2 row" *ngFor="let cell of row; index as j">
+      <input type="number" class="col-8" [(ngModel)]="a[i][j]">
+      <label class="col-2 text-success">x{{j + 1}}</label>
+      <span *ngIf="j < 4" class="col-2">+</span>
+    </div>
+
+    <div class="col-2 row">
+      <span class="col-4"> = </span>
+      <input type="number" class="col-8" [(ngModel)]="b[i]">
+    </div>
+  </div>
+
+  <div class="row">
+    <label class="col-2 me-1">Погрешность: </label>
+    <input type="number" class="col-1" [(ngModel)]="error">
+  </div>
+
+  <button type="button" class="btn btn-success my-2" (click)="calculate()">Рассчитать</button>
+
+  <h2>Результат:</h2>
+  <div class="row mb-2 text-center" *ngFor="let row of x; index as i">
+    <div class="col-2 row">
+      <span class="text-success col-2">x{{i + 1}}</span>
+      <span class="col-2"> = </span>
+      <input type="number" class="col-8" [(ngModel)]="x[i]" readonly>
+    </div>
+  </div>
+</div>
+
+
+
